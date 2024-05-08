@@ -1,24 +1,18 @@
-# README
+# Itransition Training | Project
+Public Repository for Training under Itransition 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ **Group:** Ruby | **Language: *EN***
 
-Things you may want to cover:
+ **Name:** Alina Hasan
 
-* Ruby version
+### Project
 
-* System dependencies
+**Video Demonstration:**
 
-* Configuration
+* YouTube: *to be linked*
 
-* Database creation
+* Google Drive: *to be linked*
 
-* Database initialization
+**Deployed Project:** *to be linked*
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+*Completed using Ruby on Rails*
