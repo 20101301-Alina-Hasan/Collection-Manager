@@ -6,5 +6,13 @@ Rails.application.routes.draw do
   post 'signup', to: 'registration#create'
 
   get 'login', to: 'login#new'
+
+  get 'users', to: 'users#index'
+
+  resources :users do
+    collection do
+      patch :bulk_update
+    end
+  end
   
 end
