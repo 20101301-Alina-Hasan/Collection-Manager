@@ -46,10 +46,12 @@
                     <tr>
                         <th scope="col"><%= check_box_tag "select_all", nil, false, id: "select_all_checkbox" %></th>
                         <th scope="col">ID</th>
+                        <th scope="col">Username</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Registration Time</th>
                         <th scope="col">Last Login</th>
+                        <th scope="col">Role</th>
                         <th scope="col">Status</th>
                     </tr>
                 </thead>
@@ -59,10 +61,12 @@
                             <!-- Checkboxes for each user -->
                             <td><%= check_box_tag "user_ids[]", user.id, nil, form: 'bulk_update_form' %></td>
                             <td><%= user.id %></td>
+                            <td><%= user.username %></td>
                             <td><%= user.name %></td>
                             <td><%= user.email %></td>
                             <td><%= user.created_at %></td>
                             <td><%= user.updated_at %></td>
+                            <td><%= user.admin ? 'Admin' : 'User' %></td>
                             <td><%= user.status ? 'Active' : 'Blocked' %></td>
                         </tr>
                     <% end %>
