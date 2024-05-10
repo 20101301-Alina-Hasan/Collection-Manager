@@ -3,9 +3,12 @@ class UsersController < ApplicationController
   
     def index
       # Action to list users
-      @users = User.paginate(page: params[:page], per_page: 10)
+      # @users = User.order(:id).paginate(page: params[:page], per_page: 10)  # Without ransack
+      @q = User.ransack(params[:q])
+      @users = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
     end
-  
+
+
     def bulk_update
        # Action to handle bulk actions: (block, unblock, delete)
        action = params[:commit] # Get the name of the button clicked
@@ -27,16 +30,13 @@ class UsersController < ApplicationController
     def block(user_ids)
       # Action to block a user
       puts "[2] block: Selected user IDs to block: #{user_ids.inspect}"
-      
       @selected_users = User.where(id: params.fetch(:user_ids, []).compact)
       @selected_users.update_all(status: false) # Assuming status is a boolean field representing user's blocked status
-   
       puts "Current User ID: #{session[:user_id]}"
       if user_ids.include?(session[:user_id].to_s)
         # Log out the current user if they are blocking themselves
         reset_session
       end
-      
       unless @selected_users.count == 1
         flash[:notice] = "#{@selected_users.count} users blocked successfully."
       else
@@ -63,13 +63,11 @@ class UsersController < ApplicationController
       @selected_users = User.where(id: user_ids)
       deleted_users_count = @selected_users.count
       @selected_users.destroy_all
-  
       puts "Current User ID: #{session[:user_id]}"
       if user_ids.include?(session[:user_id].to_s)
         # Log out the current user if they are blocking themselves
         reset_session
       end
-  
       unless deleted_users_count == 1
         flash[:notice] = "#{deleted_users_count} users deleted successfully."
       else

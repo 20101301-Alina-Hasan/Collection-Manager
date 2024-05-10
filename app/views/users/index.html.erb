@@ -11,6 +11,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
+                <%= render 'users/search_form' %>
+
                 <!-- Toolbar with actions -->
                 <div class="toolbar">
                     <%= form_with url: bulk_update_users_path, method: :patch, id: :bulk_update_form do |form| %>

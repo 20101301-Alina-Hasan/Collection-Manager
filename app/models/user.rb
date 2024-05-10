@@ -15,4 +15,12 @@ class User < ApplicationRecord
     validates :status, inclusion: { in: [true, false] }
     validates :admin, inclusion: { in: [true, false] }
 
+    def self.ransackable_attributes(auth_object = nil)
+        %w[id username name email admin status created_at updated_at]
+    end
+
+    def self.ransackable_associations(auth_object = nil)
+        []
+    end
+
 end

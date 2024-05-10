@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   delete 'logout', to: 'login#destroy'
 
   get 'users', to: 'users#index'
+  post 'order_by', to: 'users#order_by'
 
   resources :users do
     collection do
       patch :bulk_update
     end
   end
-  
 end
