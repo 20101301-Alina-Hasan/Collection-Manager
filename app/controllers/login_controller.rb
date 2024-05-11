@@ -6,11 +6,15 @@ class LoginController < ApplicationController
     def create
         @user = User.find_by(email: params[:email])
         if @user.present? && @user.authenticate(params[:password]) # authenticate works with has_secure_password in your User model to match hash values
-            if @user.status == true
+            if @user.status
                 session[:user_id] = @user.id 
                 @user.touch # Update updated_at timestamp
                 flash[:notice] = "Welcome back, #{@user.name}"
-                redirect_to root_path
+                if @user.admin
+                    redirect_to admin_home_path
+                else
+                    redirect_to root_path
+                end
               else
                 flash[:alert] = "Your account has been blocked. Please contact the UserManager administrator."
                 redirect_to login_path

@@ -8,7 +8,8 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-        <%= render 'users/navbar' %>
+        <!-- Navbar -->
+        <%= render 'components/admin_navbar' %>
         <div class="container">
             <!-- Search bar -->
             <div class="row mt-3 mb-3">
@@ -23,7 +24,7 @@
                     <% end %>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
-                    <%= render 'users/search_form' %>
+                    <%= render 'components/user_search_form' %>
                 </div>
             </div>
             <!-- Table -->

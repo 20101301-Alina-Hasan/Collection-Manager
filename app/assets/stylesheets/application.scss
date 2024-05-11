@@ -125,16 +125,18 @@
  
  .logged-in-message {
    color: #fff;
+   margin-right: 8px;
    white-space: nowrap; /* Prevent line breaks */
  }
  
  
- .logout-button {
+ .login-button {
    background-color: #01715d;
    border: none;
    color: white;
    border-radius: 5px;
    padding: 10px 20px;
+   margin-bottom: 3px;
    text-align: center;
    text-decoration: none;
    display: inline-block;
@@ -143,7 +145,7 @@
  }
  
  
- .logout-button:hover {
+ .login-button:hover {
    background-color: #015c4b; 
  }
  

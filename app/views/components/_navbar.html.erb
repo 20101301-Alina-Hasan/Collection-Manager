@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #009579;" data-mdb-theme="light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="<%= root_path %>">User Manager</a>
+    <a class="navbar-brand" href="<%= root_path %>"> Our Collection </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,14 +16,16 @@
     </div>
     <!-- Logged-in message and logout button -->
     <div class="d-flex align-items-center">
-      <div class="logged-in-message mr-3">
+      <div class="logged-in-message">
         <% if Current.user %>
           Logged in as <%= Current.user.name %>
+        <% else %>
+            <%= button_to "Login", login_path, method: :get, class: "login-button" %>
         <% end %>
       </div>
       <div>
         <% if Current.user %>
-          <%= button_to "Logout", logout_path, method: :delete, class: "logout-button" %>
+          <%= button_to "Logout", logout_path, method: :delete, class: "login-button" %>
         <% end %>
       </div>
     </div>

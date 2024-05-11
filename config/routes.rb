@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'users', to: 'users#index'
   post 'order_by', to: 'users#order_by'
 
+  # For administrator
+  get 'admin_home', to: 'home#admin_index'
   resources :users do
     collection do
       patch :bulk_update
