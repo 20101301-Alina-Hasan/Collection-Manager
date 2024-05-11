@@ -9,10 +9,13 @@ class RegistrationController < ApplicationController
             session[:user_id] = @user.id
             flash[:notice] = "Account successfully created!"
             redirect_to root_path
-
         else
             render :new, status: :unprocessable_entity
         end
+        rescue ActiveRecord::RecordNotUnique => e
+            # Handle duplicate record error
+            flash.now[:alert] = "Username already exists. Please choose a different one."
+            render :new, status: :unprocessable_entity
     end
 
     def user_params
