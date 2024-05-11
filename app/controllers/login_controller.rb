@@ -16,7 +16,7 @@ class LoginController < ApplicationController
                     redirect_to root_path
                 end
               else
-                flash[:alert] = "Your account has been blocked. Please contact the UserManager administrator."
+                flash[:alert] = "Your account has been blocked. Please contact administrator."
                 redirect_to login_path
               end
         else
