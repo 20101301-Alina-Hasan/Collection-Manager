@@ -12,7 +12,7 @@
     <div class="container mt-4">
       <input type="checkbox" id="check">
       <div class="signup form">
-        <header>Signup</header>
+        <header>Sign up</header>
         <%= form_with(model: @user, url: signup_path) do |form| %>
           <% if @user.errors.any? %>
             <div class="alert alert-danger">

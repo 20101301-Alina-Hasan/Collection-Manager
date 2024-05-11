@@ -8,12 +8,11 @@ Rails.application.routes.draw do
   get 'login', to: 'login#new'
   post 'login', to: 'login#create'
   delete 'logout', to: 'login#destroy'
-
-  get 'users', to: 'users#index'
-  post 'order_by', to: 'users#order_by'
-
+  
   # For administrator
   get 'admin_home', to: 'home#admin_index'
+  get 'users', to: 'users#index'
+  post 'order_by', to: 'users#order_by'
   resources :users do
     collection do
       patch :bulk_update
