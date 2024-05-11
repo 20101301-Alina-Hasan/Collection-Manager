@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    # before_action :require_login, only: [:index]
+  before_action :require_login
+  before_action :require_admin, only: [:index]
   
     def index
       # Action to list users
@@ -79,6 +80,13 @@ class UsersController < ApplicationController
       unless session[:user_id]
       flash[:alert] = "You must be logged in to access this page."
       redirect_to login_path
+      end
+    end
+
+    def require_admin
+      unless Current.user.admin?
+        flash[:alert] = "You don't have permission to access this page."
+        redirect_to login_path
       end
     end
 end

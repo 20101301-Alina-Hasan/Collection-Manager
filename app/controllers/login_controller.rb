@@ -10,14 +10,14 @@ class LoginController < ApplicationController
                 session[:user_id] = @user.id 
                 @user.touch # Update updated_at timestamp
                 flash[:notice] = "Welcome back, #{@user.name}"
-                redirect_to users_path
+                redirect_to root_path
               else
                 flash[:alert] = "Your account has been blocked. Please contact the UserManager administrator."
                 redirect_to login_path
               end
         else
             flash[:alert] = "The Email or password you have provided is incorrect. Please try again."
-            render "home/login", status: :unprocessable_entity
+            render "login/new", status: :unprocessable_entity
         end
     end
 
