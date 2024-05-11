@@ -1,7 +1,12 @@
-<%= search_form_for @q do |f| %>
+<%= search_form_for @search_items do |search_item| %>
+  <div class="input-group">
+    <div class="form-outline" data-mdb-input-init style="width: 400px;">
+      <%= search_item.search_field :username_or_name_or_email_cont, placeholder: "Search... name, username or email", class: "form-control", id: "form1" %>
+    </div>
+      <button type="submit" class="btn btn-primary" data-mdb-ripple-init>
+        <i class="fas fa-search"></i>
+      </button>
+  </div>
+<% end %>
 
-    <%= f.label "Search" %>
-    <%= f.search_field :username_or_name_or_email_cont, placeholder: "Search..." %>
-  
-    <%= f.submit "Search" %>
-  <% end %>
+

@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'sass-rails', '~> 6.0'
 gem 'will_paginate-bootstrap4'
 gem 'ransack'
+gem "font-awesome-sass"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"

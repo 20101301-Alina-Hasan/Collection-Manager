@@ -18,6 +18,8 @@
 
  @import "bootstrap";
  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+ @import "font-awesome";
+
  *{
    margin: 0;
    padding: 0;
@@ -122,10 +124,8 @@
  }
  
  .logged-in-message {
-   color: #009579;
+   color: #fff;
    white-space: nowrap; /* Prevent line breaks */
-   // overflow: hidden; /* Hide overflow text */
-   // text-overflow: ellipsis; /* Display ellipsis (...) for overflow text */
  }
  
  

@@ -4,8 +4,8 @@ class UsersController < ApplicationController
     def index
       # Action to list users
       # @users = User.order(:id).paginate(page: params[:page], per_page: 10)  # Without ransack
-      @q = User.ransack(params[:q])
-      @users = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
+      @search_items = User.ransack(params[:q])
+      @users = @search_items.result(distinct: true).paginate(page: params[:page], per_page: 10)
     end
 
 
