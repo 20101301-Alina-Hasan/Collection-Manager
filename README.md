@@ -13,6 +13,6 @@ Public Repository for Training under Itransition
 
 * Google Drive: *to be linked*
 
-**Deployed Project:** *to be linked*
+**Deployed Project:** https://collection-manager.onrender.com
 
 *Completed using Ruby on Rails*
