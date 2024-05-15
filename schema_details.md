@@ -56,11 +56,11 @@ Let us review each table and its attributes:
    - **item_id:** ID of the item that was "hearted" by the user.
 
 8. **users:**
-- **user_id:** Unique user ID, primary key.
-- **admin:** Flag indicating whether user is an admin.
-- **status:** Flag indicating whether user is active or blocked.
-- **username:** Unique username.
-- **name:** Cannot be null.
-- **email:** Unique email.
-- **password:** Hashed, not even admin can see.   
+   - **user_id:** Unique user ID, primary key.
+   - **admin:** Flag indicating whether user is an admin.
+   - **status:** Flag indicating whether user is active or blocked.
+   - **username:** Unique username.
+   - **name:** Cannot be null.
+   - **email:** Unique email.
+   - **password:** Hashed, not even admin can see.   
 
