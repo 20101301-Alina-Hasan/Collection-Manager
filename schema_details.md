@@ -39,7 +39,7 @@ Let us review each table and its attributes:
      
      **.**
    
-   - **date3:**
+   - **date3**
    
    **int1, ... ,date3** are custom fields based on the flags in custom_details. Values are null if the corresponding flag is false.
 
