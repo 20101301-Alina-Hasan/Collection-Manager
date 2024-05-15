@@ -12,9 +12,13 @@ Let us review each table and its attributes:
    - **collection_id:** Foreign key referencing the collection to which the custom details belong.
    - **int1_flag:** Flag indicating whether the first integer field is enabled for this collection.
    - **int1_name:** Name of the first integer field.
-   - **.**
-   - **.**
-   - **.**      
+     
+     **.**
+     
+     **.**
+     
+     **.**
+         
    - **date3_flag:** Flag indicating whether the third date field is enabled for this collection.
    - **date3_name:** Name of the third date field.
    (Similar attributes for other custom fields)
@@ -27,7 +31,17 @@ Let us review each table and its attributes:
    - **collection_id:** Foreign key referencing the collection to which the item belongs.
    - **item_id:** Unique identifier for each item within a collection.
    - **name:** Name of the item.
-   - **int1, ..., date3:** Custom fields based on the flags in custom_details. Values are null if the corresponding flag is false.
+   - **int1**
+        
+     **.**
+     
+     **.**
+     
+     **.**
+   
+   - **date3**
+   
+   **int1, ... ,date3** are custom fields based on the flags in custom_details. Values are null if the corresponding flag is false.
 
 5. **item_to_tag:**
    - **item_id:** Foreign key referencing the item associated with a tag.
@@ -42,11 +56,11 @@ Let us review each table and its attributes:
    - **item_id:** ID of the item that was "hearted" by the user.
 
 8. **users:**
-- **user_id:** Unique user ID, primary key.
-- **admin:** Flag indicating whether user is an admin.
-- **status:** Flag indicating whether user is active or blocked.
-- **username:** Unique username
-- **name:** Cannot be null
-- **email:** Unique email
-- **password:** Hashed, not even admin can see.   
+   - **user_id:** Unique user ID, primary key.
+   - **admin:** Flag indicating whether user is an admin.
+   - **status:** Flag indicating whether user is active or blocked.
+   - **username:** Unique username.
+   - **name:** Cannot be null.
+   - **email:** Unique email.
+   - **password:** Hashed, not even admin can see.   
 
