@@ -12,9 +12,9 @@ Let us review each table and its attributes:
    - **collection_id:** Foreign key referencing the collection to which the custom details belong.
    - **int1_flag:** Flag indicating whether the first integer field is enabled for this collection.
    - **int1_name:** Name of the first integer field.
-   - **.**
-   - **.**
-   - **.**      
+     **.**
+     **.**
+     **.**      
    - **date3_flag:** Flag indicating whether the third date field is enabled for this collection.
    - **date3_name:** Name of the third date field.
    (Similar attributes for other custom fields)
@@ -45,8 +45,8 @@ Let us review each table and its attributes:
 - **user_id:** Unique user ID, primary key.
 - **admin:** Flag indicating whether user is an admin.
 - **status:** Flag indicating whether user is active or blocked.
-- **username:** Unique username
-- **name:** Cannot be null
-- **email:** Unique email
+- **username:** Unique username.
+- **name:** Cannot be null.
+- **email:** Unique email.
 - **password:** Hashed, not even admin can see.   
 
