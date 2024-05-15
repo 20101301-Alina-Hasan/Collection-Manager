@@ -6,64 +6,72 @@
         <title>User Management</title>
         <!-- Bootstrap CSS -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <%= javascript_include_tag 'checkbox_select_all' %>
     </head>
     <body>
-        <!-- Navbar -->
-        <%= render 'components/admin_navbar' %>
-        <div class="container">
-            <!-- Search bar -->
-            <div class="row mt-3 mb-3">
-                <div class="col-md-6">
-                    <%= form_with url: bulk_update_users_path, method: :patch, id: :bulk_update_form do |form| %>
-                        <!-- Block button -->
-                        <%= submit_tag "Block", form: :bulk_update_form, class: "btn btn-secondary mr-2" %>
-                        <!-- Unblock button -->
-                        <%= submit_tag "Unblock", form: :bulk_update_form, class: "btn btn-success mr-2" %>
-                        <!-- Delete button -->
-                        <%= submit_tag "Delete", form: :bulk_update_form, class: "btn btn-danger mr-2" %>
-                    <% end %>
-                </div>
-                <div class="col-md-6 d-flex justify-content-end">
-                    <%= render 'components/user_search_form' %>
-                </div>
-            </div>
-            <!-- Table -->
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col"><%= check_box_tag "select_all", nil, false, id: "select_all_checkbox" %></th>
-                            <th scope="col"><%= sort_link(@search_items, :id, "ID") %></th>
-                            <th scope="col"><%= sort_link(@search_items, :username, "Username", case_sensitive: false) %></th>
-                            <th scope="col"><%= sort_link(@search_items, :name, "Name", case_sensitive: false) %></th>
-                            <th scope="col"><%= sort_link(@search_items, :email, "Email", case_sensitive: false) %></th>
-                            <th scope="col"><%= sort_link(@search_items, :created_at, "Registration Time") %></th>
-                            <th scope="col"><%= sort_link(@search_items, :updated_at, "Last Login") %></th>
-                            <th scope="col"><%= sort_link(@search_items, :admin, "Role") %></th>
-                            <th scope="col"><%= sort_link(@search_items, :status, "Status") %></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% @users.each do |user| %>
-                            <tr>
-                                <!-- Checkboxes for each user -->
-                                <td><%= check_box_tag "user_ids[]", user.id, nil, form: 'bulk_update_form' %></td>
-                                <td><%= user.id %></td>
-                                <td><%= user.username %></td>
-                                <td><%= user.name %></td>
-                                <td><%= user.email %></td>
-                                <td><%= user.created_at %></td>
-                                <td><%= user.updated_at %></td>
-                                <td><%= user.admin ? 'Admin' : 'User' %></td>
-                                <td><%= user.status ? 'Active' : 'Blocked' %></td>
-                            </tr>
+        <section class="long-section">
+            <div class="container user-container">
+                <!-- Search bar -->
+                <div class="row mt-3 mb-3">
+                    <div class="d-flex justify-content-start">
+                        <%= form_with url: bulk_update_users_path, method: :patch, id: :bulk_update_form do |form| %>
+                            <!-- Add Admin button -->
+                            <%= submit_tag "Add Admin", form: :bulk_update_form, class: "btn btn-primary" %>
+                            <!-- Remove Admin button -->
+                            <%= submit_tag "Remove Admin", form: :bulk_update_form, class: "btn btn-warning" %>
+                            <!-- Block button -->
+                            <%= submit_tag "Block", form: :bulk_update_form, class: "btn btn-secondary" %>
+                            <!-- Unblock button -->
+                            <%= submit_tag "Unblock", form: :bulk_update_form, class: "btn btn-success" %>
+                            <!-- Delete button -->
+                            <%= submit_tag "Delete", form: :bulk_update_form, class: "btn btn-danger" %>
                         <% end %>
-                    </tbody>
-                </table>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <%= render 'components/user_search_form' %>
+                    </div>
+                </div>
+                <!-- Table -->
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col"><%= check_box_tag "select_all", nil, false, id: "select_all_checkbox" %></th>
+                                <th scope="col"><%= sort_link(@search_items, :id, "ID") %></th>
+                                <th scope="col"><%= sort_link(@search_items, :username, "Username", case_sensitive: false) %></th>
+                                <th scope="col"><%= sort_link(@search_items, :name, "Name", case_sensitive: false) %></th>
+                                <th scope="col"><%= sort_link(@search_items, :email, "Email", case_sensitive: false) %></th>
+                                <th scope="col"><%= sort_link(@search_items, :created_at, "Registration Time") %></th>
+                                <th scope="col"><%= sort_link(@search_items, :updated_at, "Last Login") %></th>
+                                <th scope="col"><%= sort_link(@search_items, :admin, "Role") %></th>
+                                <th scope="col"><%= sort_link(@search_items, :status, "Status") %></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @users.each do |user| %>
+                                <tr>
+                                    <!-- Checkboxes for each user -->
+                                    <td><%= check_box_tag "user_ids[]", user.id, nil, form: 'bulk_update_form' %></td>
+                                    <td><%= user.id %></td>
+                                    <td><%= user.username %></td>
+                                    <td><%= user.name %></td>
+                                    <td><%= user.email %></td>
+                                    <td><%= user.created_at %></td>
+                                    <td><%= user.updated_at %></td>
+                                    <td><%= user.admin ? 'Admin' : 'User' %></td>
+                                    <td><%= user.status ? 'Active' : 'Blocked' %></td>
+                                    <td>
+                                        <%= link_to "View", class: "btn btn-primary" %>
+                                    </td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Pagination -->
+                <%= will_paginate @users, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
             </div>
-            <!-- Pagination -->
-            <%= will_paginate @users, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
-        </div>
-        <%= javascript_include_tag 'checkbox_select_all' %>
+        </section>
     </body>
 </html>

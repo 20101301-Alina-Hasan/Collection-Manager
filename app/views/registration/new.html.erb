@@ -8,35 +8,37 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'components/navbar' %>
-    <div class="container mt-4">
-      <input type="checkbox" id="check">
-      <div class="signup form">
-        <header>Sign up</header>
-        <%= form_with(model: @user, url: signup_path) do |form| %>
-          <% if @user.errors.any? %>
-            <div class="alert alert-danger">
-            <% @user.errors.full_messages.each_with_index do |message, index| %>
-              <div><%= index + 1 %>. <%= message %></div> 
+
+    <section class="standard-section">
+      <div class="container registration-container">
+        <input type="checkbox" id="check">
+        <div class="form">
+          <header>Sign up</header>
+          <%= form_with(model: @user, url: signup_path) do |form| %>
+            <% if @user.errors.any? %>
+              <div class="alert alert-danger">
+              <% @user.errors.full_messages.each_with_index do |message, index| %>
+                <div><%= index + 1 %>. <%= message %></div> 
+              <% end %>
+              </div>
             <% end %>
-            </div>
+            <%= form.text_field :username, placeholder: "Enter a username" %>
+            <%= form.text_field :name, placeholder: "Enter your name" %>
+            <%= form.email_field :email, placeholder: "Enter your email" %>
+            <%= form.password_field :password, placeholder: "Create a password"%>
+            <%= form.password_field :password_confirmation, placeholder: "Confirm your password" %>
+            <%= form.submit "Get Started", class: "login-button" %>
           <% end %>
-          <%= form.text_field :username, placeholder: "Enter a username" %>
-          <%= form.text_field :name, placeholder: "Enter your name" %>
-          <%= form.email_field :email, placeholder: "Enter your email" %>
-          <%= form.password_field :password, placeholder: "Create a password"%>
-          <%= form.password_field :password_confirmation, placeholder: "Confirm your password" %>
-          <%= form.submit "Get Started", class: "button" %>
-        <% end %>
-        <div class="signup">
-          <span class="signup">Already have an account?
-            <a href="/login">Login</a> 
-          </span>
+          <div style="text-align: center;"> 
+            Already have an account? <a href="/login"> Log In </a> 
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </body>
+  
 </html>
+
 
 
 

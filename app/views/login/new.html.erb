@@ -8,22 +8,21 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'components/navbar' %>
-    <div class="container">
-      <input type="checkbox" id="check">
-      <div class="login form">
-        <header>Login</header>
-        <%= form_with(url: login_path) do |form| %>
-          <%= form.email_field :email, placeholder: "Enter your email" %>
-          <%= form.password_field :password, placeholder: "Create a password" %>
-          <%= form.submit "Login", class: "button" %>
-        <% end %>
-        <div class="signup">
-          <span class="signup">Don't have an account?
-          <a href="/signup">Sign up</a>
-          </span>
+    <section class="standard-section">
+      <div class="container">
+        <input type="checkbox" id="check">
+        <div class="form">
+          <header>Login</header>
+          <%= form_with(url: login_path) do |form| %>
+            <%= form.email_field :email, placeholder: "Enter your email" %>
+            <%= form.password_field :password, placeholder: "Create a password" %>
+            <%= form.submit "Log In", class: "login-button" %>
+          <% end %>
+          <div style="text-align: center;"> 
+            Don't have an account?<a href="/signup"> Sign Up </a>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </body>
 </html>

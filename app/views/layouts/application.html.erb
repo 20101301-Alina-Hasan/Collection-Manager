@@ -5,24 +5,30 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-
+    <section>
+      <% if flash[:notice] %>
+        <div class="notice">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="custom-alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+    </section>
+    <section>
+      <% if Current.user && Current.user.admin? %>
+        <%= render 'components/admin_navbar' %>
+      <% else %>
+        <%= render 'components/navbar' %>
+      <% end %>
+    </section>
   </head>
-
   <body>
     <%= yield %>
-    <% if flash[:notice] %>
-      <div class="notice">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-
-    <% if flash[:alert] %>
-      <div class="alert alert-danger" role="alert">
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
+    <%= render 'components/footer' %>
   </body>
 </html>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'login#destroy'
   
   # For administrator
-  get 'admin_home', to: 'home#admin_index'
+  get 'admin', to: 'home#admin_index'
   get 'users', to: 'users#index'
   post 'order_by', to: 'users#order_by'
   resources :users do
