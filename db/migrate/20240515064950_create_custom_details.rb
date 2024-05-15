@@ -1,7 +1,7 @@
 class CreateCustomDetails < ActiveRecord::Migration[7.1]
   def change
       create_table :custom_details,  id: false do |t|
-        t.references :collection, null: false, primary_key: true, foreign_key: true
+        t.references :collection, null: false, primary_key: true
         t.boolean :int1_flag, default: false
         t.string :int1_name
         t.boolean :int2_flag, default: false
@@ -34,5 +34,6 @@ class CreateCustomDetails < ActiveRecord::Migration[7.1]
         t.string :date3_name
         t.timestamps
       end
+      add_index :collections, unique: true
     end
 end
