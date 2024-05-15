@@ -1,6 +1,10 @@
 class User < ApplicationRecord
     has_secure_password
 
+    # Validation for username
+    validates :username, presence: true, uniqueness: { message: "is already taken." }
+    validates_format_of :username, with: /\A[a-zA-Z][a-zA-Z0-9_.]+\z/, message: "should start with a letter and contain only letters, numbers, underscores, or periods"
+
     # Validation for name
     validates :name, presence: true
   
@@ -14,6 +18,12 @@ class User < ApplicationRecord
     # Validation for status
     validates :status, inclusion: { in: [true, false] }
     validates :admin, inclusion: { in: [true, false] }
+
+    before_validation :downcase_username
+
+    def downcase_username
+        self.username = username.downcase if username.present?
+    end
 
     def self.ransackable_attributes(auth_object = nil)
         %w[id username name email admin status created_at updated_at]

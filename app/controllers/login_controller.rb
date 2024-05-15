@@ -4,7 +4,7 @@ class LoginController < ApplicationController
     end
 
     def create
-        @user = User.find_by(email: params[:email])
+        @user = User.find_by(email: params[:username_or_email]) || User.find_by(username: params[:username_or_email])
         if @user.present? && @user.authenticate(params[:password]) # authenticate works with has_secure_password in your User model to match hash values
             if @user.status
                 session[:user_id] = @user.id 

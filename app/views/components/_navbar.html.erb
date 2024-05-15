@@ -18,7 +18,7 @@
       <div class="d-flex align-items-center">
           <% if Current.user %>
             <div class="logged-in-message">
-              Logged in as <%= Current.user.name %>
+              Logged in as <strong class="m-1"><%= Current.user.username %></strong>
             </div>
           <% else %>
               <%= button_to "Log In", login_path, method: :get, class: "login-button" %>
