@@ -31,7 +31,17 @@ Let us review each table and its attributes:
    - **collection_id:** Foreign key referencing the collection to which the item belongs.
    - **item_id:** Unique identifier for each item within a collection.
    - **name:** Name of the item.
-   - **int1, ..., date3:** Custom fields based on the flags in custom_details. Values are null if the corresponding flag is false.
+   - **int1**
+        
+     **.**
+     
+     **.**
+     
+     **.**
+   
+   - **date3:**
+   
+   **int1, ... ,date3** are custom fields based on the flags in custom_details. Values are null if the corresponding flag is false.
 
 5. **item_to_tag:**
    - **item_id:** Foreign key referencing the item associated with a tag.
