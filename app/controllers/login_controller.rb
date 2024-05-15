@@ -10,7 +10,7 @@ class LoginController < ApplicationController
                 session[:user_id] = @user.id 
                 @user.touch # Update updated_at timestamp
                 flash[:notice] = "Welcome back, #{@user.name}"
-                redirect_to root_path
+                redirect_to admin_path
               else
                 flash[:alert] = "Your account has been blocked. Please contact administrator."
                 redirect_to login_path
