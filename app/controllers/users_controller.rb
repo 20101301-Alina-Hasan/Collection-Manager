@@ -56,7 +56,6 @@ class UsersController < ApplicationController
       @selected_users = User.where(id: params.fetch(:user_ids, []).compact)
       deleted_users_count = @selected_users.count
       @selected_users.destroy_all
-      puts "Current User ID: #{session[:user_id]}"
       if user_ids.include?(session[:user_id].to_s)
         reset_session
       end

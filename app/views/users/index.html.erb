@@ -9,9 +9,9 @@
         <%= javascript_include_tag 'checkbox_select_all' %>
     </head>
     <body>
+        <section class="shorter-section"></section>
         <section class="long-section">
             <div class="container user-container">
-                <!-- Search bar -->
                 <div class="row mt-3 mb-3">
                     <div class="d-flex justify-content-start">
                         <%= form_with url: bulk_update_users_path, method: :patch, id: :bulk_update_form do |form| %>
@@ -28,6 +28,7 @@
                         <% end %>
                     </div>
                     <div class="d-flex justify-content-end">
+                        <!-- Search bar -->
                         <%= render 'components/user_search_form' %>
                     </div>
                 </div>
@@ -36,7 +37,7 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th scope="col"><%= check_box_tag "select_all", nil, false, id: "select_all_checkbox" %></th>
+                                <th scope="col"><%= check_box_tag "select_all", nil, false, id: "select_all_users" %></th>
                                 <th scope="col"><%= sort_link(@search_items, :id, "ID") %></th>
                                 <th scope="col"><%= sort_link(@search_items, :username, "Username", case_sensitive: false) %></th>
                                 <th scope="col"><%= sort_link(@search_items, :name, "Name", case_sensitive: false) %></th>
@@ -62,7 +63,7 @@
                                     <td><%= user.admin ? 'Admin' : 'User' %></td>
                                     <td><%= user.status ? 'Active' : 'Blocked' %></td>
                                     <td>
-                                        <%= link_to "View", class: "btn btn-primary" %>
+                                        <%= link_to "View"%>
                                     </td>
                                 </tr>
                             <% end %>
@@ -73,5 +74,6 @@
                 <%= will_paginate @users, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
             </div>
         </section>
+        <section class="shorter-section"></section>
     </body>
 </html>

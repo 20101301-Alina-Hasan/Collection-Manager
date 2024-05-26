@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_15_075110) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_17_170818) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,18 +38,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_075110) do
     t.string "int2_name"
     t.boolean "int3_flag", default: false
     t.string "int3_name"
-    t.boolean "string1_flag", default: false
-    t.string "string1_name"
-    t.boolean "string2_flag", default: false
-    t.string "string2_name"
-    t.boolean "string3_flag", default: false
-    t.string "string3_name"
+    t.boolean "str1_flag", default: false
+    t.string "str1_name"
+    t.boolean "str2_flag", default: false
+    t.string "str2_name"
+    t.boolean "str3_flag", default: false
+    t.string "str3_name"
     t.boolean "txt1_flag", default: false
     t.string "txt1_name"
     t.boolean "txt2_flag", default: false
     t.string "txt2_name"
     t.boolean "txt3_flag", default: false
     t.string "txt3_name"
+    t.boolean "bool1_flag", default: false
+    t.string "bool1_name"
+    t.boolean "bool2_flag", default: false
+    t.string "bool2_name"
+    t.boolean "bool3_flag", default: false
+    t.string "bool3_name"
     t.boolean "date1_flag", default: false
     t.string "date1_name"
     t.boolean "date2_flag", default: false
@@ -59,24 +65,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_075110) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["collection_id"], name: "index_custom_details_on_collection_id"
-  end
-
-  create_table "hearts", primary_key: ["user_id", "item_id"], force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "item_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_hearts_on_item_id"
-    t.index ["user_id"], name: "index_hearts_on_user_id"
-  end
-
-  create_table "item_to_tags", primary_key: ["item_id", "tag_id"], force: :cascade do |t|
-    t.bigint "item_id", null: false
-    t.bigint "tag_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_item_to_tags_on_item_id"
-    t.index ["tag_id"], name: "index_item_to_tags_on_tag_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -91,6 +79,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_075110) do
     t.text "txt1"
     t.text "txt2"
     t.text "txt3"
+    t.boolean "bool1"
+    t.boolean "bool2"
+    t.boolean "bool3"
     t.date "date1"
     t.date "date2"
     t.date "date3"
@@ -120,10 +111,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_075110) do
   end
 
   add_foreign_key "collections", "users"
-  add_foreign_key "custom_details", "collections"
-  add_foreign_key "hearts", "items"
-  add_foreign_key "hearts", "users"
-  add_foreign_key "item_to_tags", "items"
-  add_foreign_key "item_to_tags", "tags"
   add_foreign_key "items", "collections"
 end

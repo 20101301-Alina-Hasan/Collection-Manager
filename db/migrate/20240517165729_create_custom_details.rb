@@ -34,6 +34,5 @@ class CreateCustomDetails < ActiveRecord::Migration[7.1]
         t.string :date3_name
         t.timestamps
       end
-      add_index :collections, unique: true
     end
 end

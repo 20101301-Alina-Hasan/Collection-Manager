@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
+    has_many :collections
 
     # Validation for username
     validates :username, presence: true, uniqueness: { message: "is already taken." }

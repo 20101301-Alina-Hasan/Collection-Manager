@@ -2,115 +2,128 @@
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
  *= require_self
  */
 
- /* Import Google font - Poppins */
+/* Import Google font - Poppins */
 
- @import "bootstrap";
- @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
- @import "font-awesome";
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import "font-awesome";
 
- *{
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-   font-family: 'Poppins', sans-serif;
- }
- .container{
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%,-50%);
-   max-width: 430px;
-   width: 100%;
-   background: #fff;
-   border-radius: 7px;
-   box-shadow: 0 5px 10px rgba(0,0,0,0.3);
- }
- .registration-container {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 430px;
+  width: 100%;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.registration-container {
   margin-top: 4%;
- }
- .user-container {
-  margin-top: 16%;
-  max-width: 1250px !important;
- }
- #check:checked ~ .login{
-   display: none;
- }
- #check{
-   display: none;
- }
- .container .form{
-   padding: 2rem;
- }
- .form header{
-   font-size: 2rem;
-   font-weight: 500;
-   text-align: center;
-   margin-bottom: 1.5rem;
- }
-  .form input{
-    height: 60px;
-    width: 100%;
-    padding: 0 15px;
-    font-size: 17px;
-    margin-bottom: 1.3rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    outline: none;
-  }
-  .form input:focus{
-    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
-  }
- .form a{
-   font-size: 16px;
-   color: #009579;
-   text-decoration: none;
- }
- .form a:hover{
-   text-decoration: underline;
- }
- .form input.button{
-   color: #fff;
-   background: #01715d;
-   font-size: 1.2rem;
-   font-weight: 500;
-   letter-spacing: 1px;
-   margin-top: 1.7rem;
-   cursor: pointer;
-   transition: 0.4s;
- }
- .form input.button:hover{
-   background: #015c4b;
- }
- .custom-alert, .notice {
+}
+
+.user-container {
+  max-width: 1435px !important;
+}
+
+.form-container {
+  max-width: 1435px !important;
+}
+
+#check:checked ~ .login {
+  display: none;
+}
+
+#check {
+  display: none;
+}
+
+.container .form {
+  padding: 2rem;
+}
+
+.form header {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form input {
+  height: 60px;
+  width: 100%;
+  padding: 0 15px;
+  font-size: 17px;
+  margin-bottom: 1.3rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+}
+
+.form input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.form a {
+  font-size: 16px;
+  color: #009579;
+  text-decoration: none;
+}
+
+.form a:hover {
+  text-decoration: underline;
+}
+
+.form input.button {
+  color: #fff;
+  background: #01715d;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 1.7rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.form input.button:hover {
+  background: #015c4b;
+}
+
+.custom-alert, .notice {
   padding: 5px;
   text-align: left;
- }
- .custom-alert {
+}
+
+.custom-alert {
   background-color: #f8d7da;
   color: #721c24;
- }
- .notice {
-  background-color: #4CAF50; 
+}
+
+.notice {
+  background-color: #4CAF50;
   color: white;
- }
- .logged-in-message {
+}
+
+.logged-in-message {
   color: #fff;
   margin-right: 1rem;
   white-space: nowrap; /* Prevent line breaks */
- }
- .login-button {
+}
+
+.login-button {
   background-color: #01715d;
   border: none;
   color: white;
@@ -123,62 +136,166 @@
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
- }
- .login-button:hover {
-  background-color: #015c4b; 
- }
- .toolbar {
+}
+
+.login-button:hover {
+  background-color: #015c4b;
+}
+
+.toolbar {
   margin-bottom: 20px; /* Add margin below the buttons */
   padding-top: 20px;
- }
- .pagination {
+}
+
+.pagination {
   justify-content: center;
- }
- .pagination .page-link {
-   color: black; 
-   background-color: #ffffff;
-   border-color: #009579;    
- }
- .pagination .page-link:hover {
-   color: #ffffff; 
-   background-color: #01715d; 
-   border-color: #01715d;
- }
- .pagination .page-item.active .page-link {
-   color: #ffffff; 
-   background-color: #01715d; 
-   border-color: #01715d;
- }
- th {
-   font-weight: 625 !important;
- }
-.standard-section, .long-section {
+}
+
+.pagination .page-link {
+  color: black;
+  background-color: #ffffff;
+  border-color: #009579;
+}
+
+.pagination .page-link:hover {
+  color: #ffffff;
+  background-color: #01715d;
+  border-color: #01715d;
+}
+
+.pagination .page-item.active .page-link {
+  color: #ffffff;
+  background-color: #01715d;
+  border-color: #01715d;
+}
+
+th {
+  font-weight: 625 !important;
+}
+
+.shorter-section,
+.short-section,
+.standard-section,
+.long-section,
+.longer-section {
   text-align: center;
   background: whitesmoke;
   box-sizing: border-box;
 }
+
+.shorter-section {
+  height: 10vh;
+}
+
+.short-section {
+  height: 80vh;
+}
+
 .standard-section {
   height: 100vh;
 }
+
 .long-section {
   height: 150vh;
 }
+
+.longer-section {
+  height: 200vh;
+}
+
 footer {
   height: 25vh;
-  padding-top: 3rem; 
-  padding-bottom: 4rem; 
+  padding-top: 3rem;
+  padding-bottom: 4rem;
   background-color: #01715d;
   color: #ffffff;
 }
+
 footer .nav {
   justify-content: center;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
+
 footer .nav-link {
   color: #ffffff !important;
   padding: 2rem;
-} 
-btn {
+}
+
+.btn {
   margin: 4px;
 }
+
+.standard-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-box {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  max-height: 1000px;
+  text-align: left;
+}
+
+.form-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.form-table input[type="text"],
+.form-table textarea {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box; 
+}
+
+.form-table textarea {
+  height: 450px !important;
+  resize: none;
+}
+
+#error_explanation {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+#error_explanation h2 {
+  margin-top: 0;
+}
+
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.table {
+  table-layout: fixed;
+  width: 100%;
+  
+}
+
+th, td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+

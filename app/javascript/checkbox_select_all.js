@@ -1,10 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const selectAllCheckbox = document.getElementById('select_all_checkbox');
-    const userCheckboxes = document.querySelectorAll('input[name="user_ids[]"]');
-    
-    selectAllCheckbox.addEventListener('change', function() {
-      userCheckboxes.forEach(function(checkbox) {
-        checkbox.checked = selectAllCheckbox.checked;
-      });
-    });
-  });
+  function setupSelectAll(selectAllId, checkboxName) {
+      const selectAllCheckbox = document.getElementById(selectAllId);
+      const checkboxes = document.querySelectorAll(`input[name="${checkboxName}"]`);
+      
+      if (selectAllCheckbox) {
+          selectAllCheckbox.addEventListener('change', function() {
+              checkboxes.forEach(function(checkbox) {
+                  checkbox.checked = selectAllCheckbox.checked;
+              });
+          });
+      }
+  }
+
+  setupSelectAll('select_all_users', 'user_ids[]');
+  setupSelectAll('select_all_collections', 'collection_ids[]');
+});

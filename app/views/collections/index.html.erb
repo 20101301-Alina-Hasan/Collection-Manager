@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<!-- Scripts -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <%= javascript_include_tag 'checkbox_select_all' %>
+	</head>
+	<body>
+        <section class="shorter-section"></section>
+		<section class="long-section">
+            <div class="container form-container">
+                <div class="row mt-3 mb-3">
+                    <div class="d-flex justify-content-between">
+                        <!-- Delete button -->
+                        <%= form_with url: bulk_destroy_collections_path, method: :patch, id: :bulk_destroy_form do |form| %>
+                        <!-- Add button -->
+                        <%= submit_tag "Delete", form: :bulk_destroy_form, class: "btn btn-danger" %>
+                        <% end %>
+                        <%= link_to "Add Collection", new_collection_path, class: "btn btn-primary mr-2" %>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <colgroup>
+                            <col width="50px" />
+                            <col width="100px" />
+                            <col width="250px" />
+                            <col width="500px" />
+                            <col width="100px" />
+                            <col width="75px" />
+                            <col width="75px" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col"><%= check_box_tag "select_all", nil, false, id: "select_all_collections" %></th>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th></th> 
+                                <th></th> 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @collections.each do |collection| %>
+                                <tr>
+                                    <td><%= check_box_tag "collection_ids[]", collection.id, nil, form: 'bulk_destroy_form' %></td>
+                                    <td> 
+                                        <% if asset_exists?(collection.image_url) %>
+                                            <%= image_tag collection.image_url, class: "collection-image" %>
+                                        <% end %>
+                                    </td>
+                                    <td><%= collection.name %></td>
+                                    <td><%= collection.description %></td>
+                                    <td> Some Category </td>
+                                    <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
+                                    <td><%= link_to 'View' %></td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+		</section>
+        <section class="shorter-section"></section>
+	</body>
+</html>
