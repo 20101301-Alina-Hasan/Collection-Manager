@@ -20,8 +20,12 @@
       <% end %>
     </section>
     <section>
-      <% if Current.user && Current.user.admin? %>
-        <%= render 'components/admin_navbar' %>
+      <% if Current.user %>
+        <% if Current.user.admin? %>
+          <%= render 'components/admin_navbar' %>
+        <% else %>
+          <%= render 'components/user_navbar' %>
+        <% end %>
       <% else %>
         <%= render 'components/navbar' %>
       <% end %>

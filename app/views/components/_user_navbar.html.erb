@@ -9,6 +9,9 @@
           <li class="nav-item">
             <a class="nav-link" href="<%= root_path %>">Explore</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= collections_path %>">Home</a>
+          </li>
         </ul>
       </div>
       <!-- Logged-in message and logout button -->
@@ -17,11 +20,11 @@
             <div class="logged-in-message">
               Logged in as <strong class="m-1"><%= Current.user.username %></strong>
             </div>
-          <% else %>
-              <%= button_to "Log In", login_path, method: :get, class: "login-button" %>
-              <%= button_to "Sign Up", signup_path, method: :get, class: "login-button" %>
           <% end %>
         <div>
+          <% if Current.user %>
+            <%= button_to "Log Out", logout_path, method: :delete, class: "login-button" %>
+          <% end %>
         </div>
       </div>
     </div>

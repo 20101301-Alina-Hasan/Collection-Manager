@@ -95,7 +95,7 @@ class UsersController < ApplicationController
 
     def require_admin
       unless Current.user.admin?
-        flash[:alert] = "You don't have permission to access this page."
+        flash[:alert] = "You do not have permission to access this page."
         redirect_to login_path
       end
     end
