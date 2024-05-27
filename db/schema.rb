@@ -31,42 +31,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_17_170818) do
     t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
-  create_table "custom_details", primary_key: "collection_id", force: :cascade do |t|
-    t.boolean "int1_flag", default: false
-    t.string "int1_name"
-    t.boolean "int2_flag", default: false
-    t.string "int2_name"
-    t.boolean "int3_flag", default: false
-    t.string "int3_name"
-    t.boolean "str1_flag", default: false
-    t.string "str1_name"
-    t.boolean "str2_flag", default: false
-    t.string "str2_name"
-    t.boolean "str3_flag", default: false
-    t.string "str3_name"
-    t.boolean "txt1_flag", default: false
-    t.string "txt1_name"
-    t.boolean "txt2_flag", default: false
-    t.string "txt2_name"
-    t.boolean "txt3_flag", default: false
-    t.string "txt3_name"
-    t.boolean "bool1_flag", default: false
-    t.string "bool1_name"
-    t.boolean "bool2_flag", default: false
-    t.string "bool2_name"
-    t.boolean "bool3_flag", default: false
-    t.string "bool3_name"
-    t.boolean "date1_flag", default: false
-    t.string "date1_name"
-    t.boolean "date2_flag", default: false
-    t.string "date2_name"
-    t.boolean "date3_flag", default: false
-    t.string "date3_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["collection_id"], name: "index_custom_details_on_collection_id"
-  end
-
   create_table "items", force: :cascade do |t|
     t.bigint "collection_id", null: false
     t.string "name", null: false
