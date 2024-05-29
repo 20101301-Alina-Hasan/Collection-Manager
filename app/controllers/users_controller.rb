@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_login
-  # before_action :require_admin, only: [:index]
+  before_action :require_admin, only: [:index]
   
     def index
       # @users = User.order(:id).paginate(page: params[:page], per_page: 10)  # Without ransack
@@ -93,11 +93,11 @@ class UsersController < ApplicationController
       end
     end
 
-    # def require_admin
-    #   unless Current.user.admin?
-    #     flash[:alert] = "You do not have permission to access this page."
-    #     redirect_to root_path
-    #   end
-    # end
+    def require_admin
+      unless Current.user.admin?
+        flash[:alert] = "You do not have permission to access this page."
+        redirect_to root_path
+      end
+    end
 end
   
