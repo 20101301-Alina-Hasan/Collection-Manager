@@ -5,7 +5,7 @@ Public Repository for Training under Itransition
 
  **Name:** Alina Hasan
 
-### Project -------------------------------------
+### Project -------------------------------------------------
 
 **Deployed Project:** https://collection-manager.onrender.com
 
@@ -14,3 +14,5 @@ Public Repository for Training under Itransition
    * **password:** admin
 
 *Completed using Ruby on Rails*
+
+### ----------------------------------------------------------
