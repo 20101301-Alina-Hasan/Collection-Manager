@@ -7,12 +7,6 @@ Public Repository for Training under Itransition
 
 ### Project
 
-**Video Demonstration:**
-
-* YouTube: *to be linked*
-
-* Google Drive: *to be linked*
-
-**Deployed Project:** https://collection-manager.onrender.com
+**Deployed Project:** 
 
 *Completed using Ruby on Rails*
