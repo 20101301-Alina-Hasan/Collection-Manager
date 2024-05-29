@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
   # For administrator
-  get 'admin', to: 'home#admin_index'
+  get 'admin', to: 'home#index'
   get 'users', to: 'users#index'
   post 'order_by', to: 'users#order_by'
   resources :users do
