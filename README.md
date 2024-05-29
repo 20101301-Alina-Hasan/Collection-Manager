@@ -10,7 +10,7 @@ Public Repository for Training under Itransition
 **Deployed Project:** https://collection-manager.onrender.com
 
 **Admin Access:**
-  * **username:** admin
-  * **password:** admin
+   **username:** admin
+   **password:** admin
 
 *Completed using Ruby on Rails*
