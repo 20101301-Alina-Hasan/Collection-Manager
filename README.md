@@ -5,13 +5,7 @@ Public Repository for Training under Itransition
 
  **Name:** Alina Hasan
 
-### Project
-
-**Video Demonstration:**
-
-* YouTube: *to be linked*
-
-* Google Drive: *to be linked*
+### Project -------------------------------------
 
 **Deployed Project:** https://collection-manager.onrender.com
 
