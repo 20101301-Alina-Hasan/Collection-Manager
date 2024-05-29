@@ -7,6 +7,6 @@ Public Repository for Training under Itransition
 
 ### Project -------------------------------------
 
-**Deployed Project:** 
+**Deployed Project:** https://collection-manager.onrender.com
 
 *Completed using Ruby on Rails*
