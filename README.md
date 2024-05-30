@@ -11,8 +11,9 @@ Public Repository for Training under Itransition
 
 **Admin Access:** Chief Administrator cannot be removed or demoted. 
     
-    * **username:** admin
-    * **password:** admin
+    * username: admin
+
+    * password: admin
 
 *Completed using Ruby on Rails*
 
