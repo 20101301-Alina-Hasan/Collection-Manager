@@ -178,7 +178,6 @@ th {
 .standard-section,
 .long-section,
 .longer-section {
-  text-align: center;
   background: whitesmoke;
   box-sizing: border-box;
 }
@@ -305,5 +304,10 @@ th, td {
   text-overflow: ellipsis;
 }
 
-
+h1 .page-title {
+  font-size: 36px; 
+  font-weight: bold;
+  text-align: left;
+  font-family: 'Arial', sans-serif; 
+}
 
