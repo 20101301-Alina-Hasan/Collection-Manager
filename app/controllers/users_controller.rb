@@ -54,9 +54,12 @@ class UsersController < ApplicationController
   
     def destroy(user_ids)
       @selected_users = User.where(id: params.fetch(:user_ids, []).compact)
+      @selected_users = @selected_users.where.not(id: Current.user.id, username: 'admin').or(@selected_users.where.not(id: Current.user.id, email: 'admin@collections.org'))
       deleted_users_count = @selected_users.count
       @selected_users.destroy_all
-      if user_ids.include?(session[:user_id].to_s)
+      if Current.user.username == 'admin' || Current.user.email == 'admin@collections.org'
+        return
+      elsif user_ids.include?(session[:user_id].to_s)
         reset_session
       end
       unless deleted_users_count == 1
@@ -78,6 +81,7 @@ class UsersController < ApplicationController
 
     def remove_admin(user_ids)
       @selected_users = User.where(id: params.fetch(:user_ids, []).compact)
+      @selected_users = @selected_users.where.not(id: Current.user.id, username: 'admin').or(@selected_users.where.not(id: Current.user.id, email: 'admin@collections.org'))
       @selected_users.update_all(admin: false)
       unless @selected_users.count == 1
         flash[:notice] = "#{@selected_users.count} users have been demoted to admin."
