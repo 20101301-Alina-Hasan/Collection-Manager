@@ -9,7 +9,7 @@ Public Repository for Training under Itransition
 
 **Deployed Project:** https://collection-manager.onrender.com
 
-**Admin Access:** Chief Administrator cannot be removed or demoted. 
+**Admin Access:** Chief Administrator cannot be removed or demoted in user manager. 
     
 * **username: admin**
 * **password: admin**
