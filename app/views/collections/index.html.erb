@@ -10,7 +10,9 @@
     <%= javascript_include_tag 'checkbox_select_all' %>
 </head>
 <body>
-    <section class="shorter-section"></section>
+    <section class="shorter-section">
+        <h3>YOUR COLLECTION</h3>
+    </section>
     <section class="long-section">
         <div class="container form-container">
             <div class="row mt-3 mb-3">
@@ -56,7 +58,7 @@
                                 </td>
                                 <td><%= collection.name %></td>
                                 <td><%= collection.description %></td>
-                                <td> Some Category </td>
+                                <td></td>
                                 <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
                                 <td><%= link_to 'View' %></td>
                             </tr>

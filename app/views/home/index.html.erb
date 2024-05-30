@@ -1,17 +1,71 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Collection Managaer</title>
-		<!-- Scripts -->
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-	</head>
-	<body>
-		<section class="standard-section">
-			<div>
-				<p>THIS IS THE HOMEPAGE</p>
-			</div>
-		</section>
-	</body>
+<head>
+    <!-- Scripts -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <%= javascript_include_tag 'checkbox_select_all' %>
+</head>
+<body>
+    <section class="shorter-section">
+		<h3>ALL COLLECTION</h3>
+	</section>
+    <section class="long-section">
+        <div class="container form-container">
+            <div class="row mt-3 mb-3">
+			<%= render 'components/collection_search_form' %>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <colgroup>
+                        <col width="100px" />
+                        <col width="250px" />
+                        <col width="500px" />
+                        <col width="100px" />
+						<% unless Current.user.admin? %>
+                        	<col width="75px" />
+						<% end %>
+                        <col width="75px" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Category</th>
+							<% unless Current.user.admin? %>
+                            	<th></th> 
+							<% end %>
+                            <th></th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @collections.each do |collection| %>
+                            <tr>
+                                <td> 
+                                    <% if collection.image_url.present? %>
+                                        <%= image_tag collection.image_url, class: "collection-image" %>
+									<% else %>
+										No Image
+                                    <% end %>
+                                </td>
+                                <td><%= collection.name %></td>
+                                <td><%= collection.description %></td>
+                                <td></td>
+                                <% unless Current.user.admin? %> 
+                                    <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
+								<% end %>
+                                <td><%= link_to 'View' %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section class="shorter-section"></section>
+</body>
 </html>
