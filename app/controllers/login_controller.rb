@@ -8,7 +8,7 @@ class LoginController < ApplicationController
         if @user.present? && @user.authenticate(params[:password]) # authenticate works with has_secure_password in your User model to match hash values
             if @user.status
                 session[:user_id] = @user.id 
-                @user.touch # Update updated_at timestamp
+                @user.touch 
                 flash[:notice] = "Welcome back, #{@user.name}"
                 redirect_to root_path
               else

@@ -25,7 +25,7 @@
                         <col width="250px" />
                         <col width="500px" />
                         <col width="100px" />
-						<% unless Current.user.admin? %>
+						<% if Current.user.present? && Current.user.admin? %>
                         	<col width="75px" />
 						<% end %>
                         <col width="75px" />
@@ -36,7 +36,7 @@
                             <th>Name</th>
                             <th>Description</th>
                             <th>Category</th>
-							<% unless Current.user.admin? %>
+							<% if Current.user.present? && Current.user.admin? %>
                             	<th></th> 
 							<% end %>
                             <th></th> 
@@ -55,7 +55,7 @@
                                 <td><%= collection.name %></td>
                                 <td><%= collection.description %></td>
                                 <td></td>
-                                <% unless Current.user.admin? %> 
+                                <% if Current.user.present? && Current.user.admin? %> 
                                     <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
 								<% end %>
                                 <td><%= link_to 'View' %></td>
