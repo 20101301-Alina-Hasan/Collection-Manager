@@ -33,10 +33,13 @@ class UsersController < ApplicationController
     private
   
     def block(user_ids)
-      @selected_users = User.where(id: params.fetch(:user_ids, []).compact)
+      @selected_users = User.where(id: params.fetch(:user_ids, []).compact).where.not(username: 'admin')
       @selected_users.update_all(status: false) 
       puts "Current User ID: #{session[:user_id]}"
-      if user_ids.include?(session[:user_id].to_s)
+      if Current.user.username == 'admin'
+        flash[:alert] = "Chief Administrator cannot be blocked."
+        return
+      elsif user_ids.include?(session[:user_id].to_s)
         reset_session
       end
       unless @selected_users.count == 1
@@ -91,7 +94,7 @@ class UsersController < ApplicationController
       if @selected_users.count == 1
         flash[:notice] = "#{@selected_users.count} user has been demoted from admin."
       elsif @selected_users.count == 0
-        flash[:alert] = "No user has been demoted from admin. NOTICE: The Chief Administrator cannot be removed."
+        flash[:alert] = "No user has been demoted from admin. NOTICE: The Chief Administrator cannot be demoted."
       else
         flash[:notice] = "#{@selected_users.count} users have been demoted from admin."
       end

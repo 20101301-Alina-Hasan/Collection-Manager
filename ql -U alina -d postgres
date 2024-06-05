@@ -1,0 +1,15 @@
+                                                              List of databases
+              Name              |  Owner   | Encoding | Locale Provider | Collate |  Ctype  | ICU Locale | ICU Rules |   Access privileges   
+--------------------------------+----------+----------+-----------------+---------+---------+------------+-----------+-----------------------
+ collection_manager_development | alina    | UTF8     | libc            | C.UTF-8 | C.UTF-8 |            |           | 
+ collection_manager_test        | alina    | UTF8     | libc            | C.UTF-8 | C.UTF-8 |            |           | 
+ postgres                       | postgres | UTF8     | libc            | C.UTF-8 | C.UTF-8 |            |           | 
+ template0                      | postgres | UTF8     | libc            | C.UTF-8 | C.UTF-8 |            |           | =c/postgres          +
+                                |          |          |                 |         |         |            |           | postgres=CTc/postgres
+ template1                      | postgres | UTF8     | libc            | C.UTF-8 | C.UTF-8 |            |           | =c/postgres          +
+                                |          |          |                 |         |         |            |           | postgres=CTc/postgres
+ test                           | postgres | UTF8     | libc            | C.UTF-8 | C.UTF-8 |            |           | 
+ user_manager_development       | postgres | UTF8     | libc            | C.UTF-8 | C.UTF-8 |            |           | 
+ user_manager_test              | alina    | UTF8     | libc            | C.UTF-8 | C.UTF-8 |            |           | 
+(8 rows)
+
