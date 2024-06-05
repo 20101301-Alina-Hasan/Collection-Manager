@@ -64,7 +64,7 @@
                                     <td><%= user.admin ? 'Admin' : 'User' %></td>
                                     <td><%= user.status ? 'Active' : 'Blocked' %></td>
                                     <td>
-                                        <%= link_to "View"%>
+                                    <%= link_to "View", user_path(user) %>
                                     </td>
                                 </tr>
                             <% end %>

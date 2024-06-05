@@ -8,6 +8,10 @@ class UsersController < ApplicationController
       @users = @search_items.result(distinct: true).paginate(page: params[:page], per_page: 12)
     end
 
+    def show
+      @user = User.find(params[:id])
+    end
+
     def bulk_update
        action = params[:commit] 
        user_ids = params[:user_ids] || [] 
