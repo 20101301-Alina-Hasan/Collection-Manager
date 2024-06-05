@@ -13,36 +13,56 @@
     <section class="long-section">
         <h1 class="custom-title"> All Collections </h1>
         <div class="container form-container">
-            <div class="row mt-3 mb-3">
+                <div class="row mt-3 mb-3">
+                    <% if Current.user.present? && Current.user.admin? %>
+                        <div class="d-flex justify-content-between">
+                            <!-- Delete button -->
+                            <%= form_with url: bulk_destroy_collections_path, method: :patch, id: :bulk_destroy_form do |form| %>
+                            <%= submit_tag "Delete", form: :bulk_destroy_form, class: "btn btn-danger" %>
+                            <% end %>
+                        </div>
+                    <% end %>
+                </div>
+            
+            <div class="d-flex justify-content-end">
 			<%= render 'components/collection_search_form' %>
             </div>
             <div class="table-responsive">
                 <table class="table table-bordered table-striped">
                     <colgroup>
+                        <% if Current.user.present? && Current.user.admin? %>
+                            <col width="50px" />
+                        <% end %>
                         <col width="100px" />
                         <col width="250px" />
                         <col width="500px" />
                         <col width="100px" />
 						<% if Current.user.present? && Current.user.admin? %>
                         	<col width="75px" />
-						<% end %>
-                        <col width="75px" />
+                            <col width="75px" />
+                        <% end %>
                     </colgroup>
                     <thead>
                         <tr>
+                            <% if Current.user.present? && Current.user.admin? %>
+                                <th scope="col"><%= check_box_tag "select_all", nil, false, id: "select_all_collections" %></th>
+                            <% end %>
                             <th></th>
                             <th>Name</th>
                             <th>Description</th>
                             <th>Category</th>
 							<% if Current.user.present? && Current.user.admin? %>
                             	<th></th> 
-							<% end %>
-                            <th></th> 
+                                <th></th> 
+                            <% end %>
                         </tr>
                     </thead>
                     <tbody>
                         <% @collections.each do |collection| %>
                             <tr>
+                                <% if Current.user.present? && Current.user.admin? %> 
+                                    <td><%= check_box_tag "collection_ids[]", collection.id, nil, form: 'bulk_destroy_form' %></td>
+                                <% end %>
                                 <td> 
                                     <% if collection.image_url.present? %>
                                         <%= image_tag collection.image_url, class: "collection-image" %>
@@ -55,8 +75,8 @@
                                 <td></td>
                                 <% if Current.user.present? && Current.user.admin? %> 
                                     <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
-								<% end %>
-                                <td><%= link_to 'View', collection_path(collection) %></td>
+                                    <td><%= link_to 'View', collection_path(collection) %></td>
+								<% end %> 
                             </tr>
                         <% end %>
                     </tbody>

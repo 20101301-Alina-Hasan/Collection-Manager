@@ -44,7 +44,11 @@ class CollectionsController < ApplicationController
   end
 
   def bulk_destroy
-    @selected_collections = Current.user.collections.where(id: params.fetch(:collection_ids, []).compact)
+    if Current.user.present? && Current.user.admin?
+      @selected_collections = Collection.where(id: params.fetch(:collection_ids, []).compact)
+    else
+      @selected_collections = Current.user.collections.where(id: params.fetch(:collection_ids, []).compact)
+    end
     deleted_collections_count = @selected_collections.count
     @selected_collections.destroy_all
     flash[:alert] = "#{deleted_collections_count} collection#{'s' unless deleted_collections_count == 1} were deleted successfully."

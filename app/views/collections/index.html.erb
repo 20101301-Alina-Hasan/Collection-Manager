@@ -18,9 +18,9 @@
                 <div class="d-flex justify-content-between">
                     <!-- Delete button -->
                     <%= form_with url: bulk_destroy_collections_path, method: :patch, id: :bulk_destroy_form do |form| %>
-                    <!-- Add button -->
                     <%= submit_tag "Delete", form: :bulk_destroy_form, class: "btn btn-danger" %>
                     <% end %>
+                    <!-- Add button -->
                     <%= link_to "Add Collection", new_collection_path, class: "btn btn-primary mr-2" %>
                 </div>
             </div>
@@ -51,9 +51,11 @@
                             <tr>
                                 <td><%= check_box_tag "collection_ids[]", collection.id, nil, form: 'bulk_destroy_form' %></td>
                                 <td> 
-                                    <% if collection.image_url.present? %>
-                                        <%= image_tag collection.image_url, class: "collection-image" %>
-                                    <% end %>
+                                <% if collection.image_url.present? %>
+                                    <%= image_tag collection.image_url, class: "collection-image" %>
+                                <% else %>
+                                    No Image
+                                <% end %>
                                 </td>
                                 <td><%= collection.name %></td>
                                 <td><%= collection.description %></td>
