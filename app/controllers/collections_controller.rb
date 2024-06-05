@@ -60,15 +60,14 @@ class CollectionsController < ApplicationController
   end
 
   def set_collection
-    @collection = Current.user.collections.find(params[:id])
+    if Current.user.admin?
+      @collection = Collection.find(params[:id])
+    else
+      @collection = Current.user.collections.find(params[:id])
+    end
   end
 
   def collection_params
-    params.require(:collection).permit(:name, :description, :image_url,
-      custom_details_attributes: [:int1_flag, :int1_name, :int2_flag, :int2_name, :int3_flag, :int3_name,
-                                  :string1_flag, :string1_name, :string2_flag, :string2_name, :string3_flag, :string3_name,
-                                  :txt1_flag, :txt1_name, :txt2_flag, :txt2_name, :txt3_flag, :txt3_name,
-                                  :bool1_flag, :bool1_name, :bool2_flag, :bool2_name, :bool3_flag, :bool3_name,
-                                  :date1_flag, :date1_name, :date2_flag, :date2_name, :date3_flag, :date3_name])
+    params.require(:collection).permit(:name, :description, :image_url)
   end
 end

@@ -304,10 +304,14 @@ th, td {
   text-overflow: ellipsis;
 }
 
-h1 .page-title {
+.page-title {
   font-size: 36px; 
   font-weight: bold;
   text-align: left;
   font-family: 'Arial', sans-serif; 
+  margin-left: 0; 
 }
 
+.custom-title {
+  text-align: center;
+}
